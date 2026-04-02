@@ -65,8 +65,8 @@ unifiguard = "unifiguard.main:app"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "pyinstaller>=6.0",
     "pytest>=8.0",
     "pytest-mock>=3.12",
