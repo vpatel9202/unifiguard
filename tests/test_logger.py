@@ -1,5 +1,4 @@
 import logging
-import os
 from pathlib import Path
 from unifiguard.logger import setup_logger
 
@@ -31,3 +30,8 @@ def test_logger_does_not_duplicate_handlers(tmp_path):
 def test_logger_warning_level(tmp_path):
     logger = setup_logger("WARNING", tmp_path / "test.log")
     assert logger.level == logging.WARNING
+
+
+def test_logger_invalid_level_falls_back_to_info(tmp_path):
+    logger = setup_logger("NOTAVALIDLEVEL", tmp_path / "test.log")
+    assert logger.level == logging.INFO
